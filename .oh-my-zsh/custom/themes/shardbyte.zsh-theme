@@ -4,7 +4,7 @@
 #                         #
 ###########################
 ######  BEGIN FILE  ###### ######  BEGIN FILE  ###### ######  BEGIN FILE  ######
-# ~/.oh.my.zsh/themes/shardbyte.zsh-theme
+# ~/.dotfiles/.oh.my.zsh/themes/shardbyte.zsh-theme
 # Shardbyte ZSH Theme
 #
 #
