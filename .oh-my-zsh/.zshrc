@@ -33,7 +33,7 @@ fi
 zsh_shard_theme=${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/themes/shardbyte.zsh-theme
 if [ ! -f "$zsh_shard_theme" ]; then
   echo "Installing zsh-shard-theme..."
-  curl -fsSLJ https://raw.githubusercontent.com/Shardbyte/dotfiles/main/.oh-my-zsh/custom/themes/shardbyte.zsh-theme "$zsh_shard_theme"
+  curl -fsSL -o "${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/themes/shardbyte.zsh-theme" https://raw.githubusercontent.com/Shardbyte/dotfiles/main/.oh-my-zsh/custom/themes/shardbyte.zsh-theme "$zsh_shard_theme"
 else
   echo "zsh-shard-theme is already installed"
 fi
@@ -41,7 +41,7 @@ fi
 zsh_zshrc="$HOME/.zshrc"
 if [ ! -f "$zsh_zshrc" ]; then
   echo "Installing zsh-zshrc..."
-  curl -fsSLJ https://raw.githubusercontent.com/Shardbyte/dotfiles/main/.oh-my-zsh/.zshrc "$zsh_zshrc"
+  curl -fsSL -o "$HOME/.zshrc" https://raw.githubusercontent.com/Shardbyte/dotfiles/main/.oh-my-zsh/.zshrc "$zsh_zshrc"
 else
   echo "zsh-zshrc is already installed"
 fi
