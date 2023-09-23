@@ -125,18 +125,6 @@ alias pubip="curl -s http://ipecho.net/plain; echo"
 alias mkdir="mkdir -p"
 
 
-# Alias for 'exa' with long format and tree view
-alias lx='exa -lT'
-# Alias for 'exa' with human-readable file sizes and colors
-alias ll='exa -lh --color=auto'
-# Alias for 'exa' with details, colors, and git status
-alias la='exa -lha --git'
-# Alias for 'exa' with tree view and hidden files
-alias lt='exa -T --all'
-# Alias for 'exa' with just the basics
-alias l='exa'
-
-
 # Alias for 'bat' with syntax highlighting for code files
 alias cat='batcat'
 # Alias for 'bat' with syntax highlighting and line numbers
