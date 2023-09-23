@@ -79,7 +79,6 @@ fi
 
 plugins=(
   git
-  eza
   ctop
   nmap
   sudo
