@@ -19,8 +19,6 @@ zsh_installed="$HOME/.oh-my-zsh/"
 if [ ! -d "$zsh_installed" ]; then
   echo "Installing oh-my-zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-  echo "oh-my-zsh is already installed"
 fi
 
 
@@ -34,74 +32,58 @@ zsh_shard_theme=${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/themes/shardbyte.
 if [ ! -f "$zsh_shard_theme" ]; then
   echo "Installing zsh-shard-theme..."
   curl -fsSL -o "$zsh_shard_theme" https://raw.githubusercontent.com/Shardbyte/dotfiles/main/.oh-my-zsh/custom/themes/shardbyte.zsh-theme
-else
-  echo "zsh-shard-theme is already installed"
 fi
 ##################################################
 zsh_zshrc="$HOME/.zshrc"
 if [ ! -f "$zsh_zshrc" ]; then
   echo "Installing zsh-zshrc..."
   curl -fsSL -o "$zsh_zshrc" https://raw.githubusercontent.com/Shardbyte/dotfiles/main/.oh-my-zsh/.zshrc
-else
-  echo "zsh-zshrc is already installed"
 fi
 ##################################################
 zsh_completions=${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/plugins/zsh-completions
 if [ ! -d "$zsh_completions" ]; then
   echo "Installing zsh-completions..."
   git clone https://github.com/zsh-users/zsh-completions "$zsh_completions"
-else
-  echo "zsh-completions is already installed"
 fi
 ##################################################
 zsh_autosuggestions=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 if [ ! -d "$zsh_autosuggestions" ]; then
   echo "Installing zsh-autosuggestions..."
   git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_autosuggestions"
-else
-  echo "zsh-autosuggestions is already installed"
 fi
 ##################################################
 zsh_syntax_highlighting=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 if [ ! -d "$zsh_syntax_highlighting" ]; then
   echo "Installing zsh-syntax-highlighting..."
   git clone https://github.com/zsh-users/zsh-syntax-highlighting "$zsh_syntax_highlighting"
-else
-  echo "zsh-syntax-highlighting is already installed"
 fi
 ##################################################
 zsh_docker_ctop=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ctop
 if [ ! -d "$zsh_docker_ctop" ]; then
   echo "Installing zsh-docker-ctop..."
   git clone https://github.com/bcicen/ctop "$zsh_docker_ctop"
-else
-  echo "zsh-docker-ctop is already installed"
 fi
 ##################################################
 zsh_batcat=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/bat
 if [ ! -d "$zsh_batcat" ]; then
   echo "Installing zsh-batcat..."
   git clone https://github.com/sharkdp/bat "$zsh_batcat"
-else
-  echo "zsh-batcat is already installed"
 fi
 ##################################################
 zsh_eza=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/eza
 if [ ! -d "$zsh_eza" ]; then
   echo "Installing zsh-eza..."
   git clone https://github.com/eza-community/eza "$zsh_eza"
-else
-  echo "zsh-eza is already installed"
 fi
 
 
 plugins=(
   git
-  bat
   eza
   ctop
   nmap
   sudo
+  batcat
   aliases
   docker
   docker-compose
@@ -138,7 +120,7 @@ export TERM=xterm-256color
 
 
 alias s="sudo"
-alias localip="ip -4 a show | grep ens | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+alias locip="ip -4 a show | grep ens | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 alias pubip="curl -s http://ipecho.net/plain; echo"
 alias mkdir="mkdir -p"
 
@@ -156,13 +138,13 @@ alias l='exa'
 
 
 # Alias for 'bat' with syntax highlighting for code files
-alias cat='bat'
+alias cat='batcat'
 # Alias for 'bat' with syntax highlighting and line numbers
-alias c='bat -n'
+alias c='batcat -n'
 # Alias for 'bat' with a plain-text output (no colors)
-alias catp='bat --plain'
+alias catp='batcat --plain'
 # Alias for 'bat' with side-by-side diff view
-alias cdiff='bat --diff'
+alias cdiff='batcat --diff'
 
 
 ############
@@ -187,7 +169,7 @@ zstyle ':omz:update' verbose default
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-# ask you if you have over 10000 history
+# Ask if you have over 10000 history
 LISTMAX=10000
 
 
@@ -207,15 +189,11 @@ if [ -f "$HOME/.zshrc.pre-oh-my-zsh" ]; then
   rm .zshrc \
   && cp .zshrc.pre-oh-my-zsh .zshrc \
   && rm .zshrc.pre-oh-my-zsh
-else
-  echo "Default .zshrc does not exist"
 fi
 
 
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
   chsh -s "$(which zsh)"
-else
-  echo "ZSH is already the default shell"
 fi
 
 
