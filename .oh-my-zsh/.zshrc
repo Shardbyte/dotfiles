@@ -58,51 +58,17 @@ if [ ! -d "$zsh_syntax_highlighting" ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting "$zsh_syntax_highlighting"
 fi
 ##################################################
-zsh_docker_ctop=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/ctop
-if [ ! -d "$zsh_docker_ctop" ]; then
-  echo "Installing zsh-docker-ctop..."
-  git clone https://github.com/bcicen/ctop "$zsh_docker_ctop"
-fi
-##################################################
-zsh_batcat=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/bat
-if [ ! -d "$zsh_batcat" ]; then
-  echo "Installing zsh-batcat..."
-  git clone https://github.com/sharkdp/bat "$zsh_batcat"
-fi
-##################################################
-zsh_eza=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/eza
-if [ ! -d "$zsh_eza" ]; then
-  echo "Installing zsh-eza..."
-  git clone https://github.com/eza-community/eza "$zsh_eza"
-fi
 
 
 plugins=(
   git
-  ctop
   nmap
   sudo
-  batcat
   aliases
   docker
   docker-compose
   command-not-found
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
-
-
-############
-#  Source  #
-############
-
-
-# "Launch" Oh-My-Zsh
-source $ZSH/oh-my-zsh.sh
-# "Launch" ZSH-autoSuggestions
-source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# "Launch" ZSH-syntaxHighlighting
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 ###########################
@@ -195,6 +161,20 @@ compinit
 # Docker
 zstyle ":completion:*:*:docker:*" option-stacking yes
 zstyle ":completion:*:*:docker-*:*" option-stacking yes
+
+
+############
+#  Source  #
+############
+
+
+# "Launch" Oh-My-Zsh
+source $ZSH/oh-my-zsh.sh
+# "Launch" ZSH-autoSuggestions
+source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# "Launch" ZSH-syntaxHighlighting
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
 #
 #
 ######  END FILE  ###### ######  END FILE  ###### ######  END FILE  ######
