@@ -149,11 +149,6 @@ if [ "$SHELL" != "/usr/bin/zsh" ]; then
   chsh -s "$(which zsh)"
 fi
 
-if [ -f "/etc/motd" ] ; [ -f "/etc/update-motd.d/10-uname" ]; then
-  sudo rm /etc/motd
-  sudo rm /etc/update-motd.d/10-uname
-fi
-
 
 ################
 #  Completion  #
