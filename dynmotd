@@ -45,7 +45,7 @@ RULES="$RESET_COLORS\033[38;5;215;48;5;234m
   ::::::::::::::::::::::::::::::::::-RULES-::::::::::::::::::::::::::::::::::
     This is a private system that you are not to give out access to anyone   
    without permission from the admin. Keep it OS (OldSkool) and Stay Frosty. 
-                   -==  THE SHARDBYTE COLLECTIVE ==-$RESET_COLORS"
+                   -==  THE SHARDBYTE COLLECTIVE  ==-$RESET_COLORS"
 echo -e " $RULES"
 
 
