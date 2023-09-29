@@ -5,7 +5,7 @@
 #                         #
 ###########################
 ######  BEGIN FILE  ###### ######  BEGIN FILE  ###### ######  BEGIN FILE  ######
-#
+# Custom .zshrc file
 #
 #
 # Path to oh-my-zsh installation
@@ -83,21 +83,42 @@ export TERM=xterm-256color
 #  Aliases  #
 #############
 
+# Depending on OS type
+which_os=$(grep -o '^ID=.*$' /etc/os-release)
+if [ "$which_os" = "ID=fedora" ]; then
+  alias cat="bat"
+  alias c="bat -n"
+  alias catp="bat --plain"
+  alias cdiff="bat --diff"
+elif [ "$which_os" = "ID=debian" ] ; [ "$which_os" = "ID=ubuntu" ]; then
+  alias cat="batcat"
+  alias c="batcat -n"
+  alias catp="batcat --plain"
+  alias cdiff="batcat --diff"
+else
+  echo "No Changes" > /dev/null
+fi
 
-alias s="sudo"
+#alias for sudo. it allows using sudo with aliases
+alias sudo="sudo "
+alias s="sudo "
+
 alias locip="ip -4 a show | grep ens | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 alias pubip="curl -s http://ipecho.net/plain; echo"
 alias mkdir="mkdir -p"
 
+# ensures that these commands ask confirmation first
+# -i interactive (prompt) -v verbose (explain what is being done)
+alias rm="rm -iv"
+alias cp="cp -iv"
+alias mv="mv -iv"
 
-# Alias for 'bat' with syntax highlighting for code files
-alias cat='batcat'
-# Alias for 'bat' with syntax highlighting and line numbers
-alias c='batcat -n'
-# Alias for 'bat' with a plain-text output (no colors)
-alias catp='batcat --plain'
-# Alias for 'bat' with side-by-side diff view
-alias cdiff='batcat --diff'
+#Navigate up the directory using only dots
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
 
 
 ############
@@ -106,7 +127,7 @@ alias cdiff='batcat --diff'
 
 
 # Permission when creating files
-umask 022
+umask 0077
 
 # Automatic ZSH Updates // Checks every 7 days
 zstyle ':omz:update' mode auto
@@ -174,7 +195,6 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # "Launch" ZSH-syntaxHighlighting
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#
 #
 #
 ######  END FILE  ###### ######  END FILE  ###### ######  END FILE  ######
