@@ -52,14 +52,3 @@ RULES="$RESET_COLORS\033[38;5;215;48;5;234m
                    -==  THE SHARDBYTE COLLECTIVE  ==- $RESET_COLORS"
 echo -e " $RULES"
 
-
-echo -e "
-
- $COLOR_COLUMN- Hostname$RESET_COLORS............: $COLOR_VALUE $HOSTNAME $RESET_COLORS
- $COLOR_COLUMN- IP Address$RESET_COLORS..........: $COLOR_VALUE $IP $RESET_COLORS
- $COLOR_COLUMN- Release$RESET_COLORS.............: $COLOR_VALUE $OS_NAME $RESET_COLORS
- $COLOR_COLUMN- Current user$RESET_COLORS........: $COLOR_VALUE $USER $RESET_COLORS
- $COLOR_COLUMN- Processes$RESET_COLORS...........: $COLOR_VALUE $PSA running $RESET_COLORS
- $COLOR_COLUMN- System uptime$RESET_COLORS.......: $COLOR_VALUE $upDays days $upHours hours $upMins minutes $upSecs seconds $RESET_COLORS
- $COLOR_COLUMN- Disk space HOME$RESET_COLORS.....: $COLOR_VALUE $HOME remaining $RESET_COLORS
-"
