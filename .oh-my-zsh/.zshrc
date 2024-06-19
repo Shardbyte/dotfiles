@@ -104,7 +104,7 @@ alias sudo="sudo "
 alias s="sudo "
 
 alias locip="ip -4 a show | grep ens | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
-alias pubip="curl -s http://ipecho.net/plain; echo"
+alias pubip="curl -s https://ip.shardbyte.com; echo"
 alias mkdir="mkdir -p"
 
 # ensures that these commands ask confirmation first
