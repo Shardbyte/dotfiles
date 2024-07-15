@@ -21,7 +21,7 @@ ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
 PROMPT="╭─${user_host}${current_dir}${rvm_ruby}${vcs_branch}${venv_prompt}
 ╰─%B${user_symbol}%b "
-RPROMPT="%W %t UTC  ⛛  $(curl -s http://ipecho.net/plain; echo) %{$reset_color%}"
+RPROMPT="%W %t UTC  ⛛  $(curl -s https://ip.shardbyte.com; echo) %{$reset_color%}"
 
 # Git prompt settings
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}‹"
